@@ -77,8 +77,24 @@ RUN apt-get clean &&\
                           texlive-xetex \
                           poppler-utils
 
+RUN apt-get install git
+
 RUN apt-get update
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:jaap.karssenberg/zim 
 RUN apt-get update
-RUN apt-get install -y zim
+RUN apt-get update && apt-get install -y \
+  zim \
+  python-gtkspellcheck \
+  aspell-de \
+  python-gtksourceview2 \
+  hicolor-icon-theme \
+  libcanberra-gtk-module \
+  bzr \
+  git \
+  locales \
+  sudo \
+  --no-install-recommends \
+  && apt-get autoclean \
+  && apt-get autoremove \
+  && rm -rf /var/lib/apt/lists/*
