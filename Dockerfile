@@ -77,8 +77,6 @@ RUN apt-get clean &&\
                           texlive-xetex \
                           poppler-utils
 
-RUN apt-get install git
-
 RUN apt-get update
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:jaap.karssenberg/zim 
